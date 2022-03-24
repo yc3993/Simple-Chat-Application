@@ -1,0 +1,25 @@
+Test-case 1:
+start server: python3 ChatApp.py -s 8888
+start client x: python3 ChatApp.py -c x 160.39.198.177 8888 8890
+start client y: python3 ChatApp.py -c y 160.39.198.177 8888 8891
+start client z: python3 ChatApp.py -c z 160.39.198.177 8888 8892
+chat x -> y, y->z, ... , x ->z (All combinations): send x hi / send y hi / send z hi
+dereg x
+chat y->x: send x hi
+chat z->x: send x hi
+reg x
+
+Test-case 2:
+start server: python3 ChatApp.py -s 8888
+start client x: python3 ChatApp.py -c x 160.39.198.177 8888 8890
+start client y: python3 ChatApp.py -c y 160.39.198.177 8888 8891
+dereg y
+server exit
+send message x-> y
+
+Test-case 3:
+start server: python3 ChatApp.py -s 8888
+start client x: python3 ChatApp.py -c x 160.39.198.177 8888 8890
+start client y: python3 ChatApp.py -c y 160.39.198.177 8888 8891
+start client z: python3 ChatApp.py -c z 160.39.198.177 8888 8892
+send_all hi
